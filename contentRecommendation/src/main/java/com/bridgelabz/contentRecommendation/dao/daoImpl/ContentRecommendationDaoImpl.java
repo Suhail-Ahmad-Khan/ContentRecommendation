@@ -17,21 +17,14 @@ public class ContentRecommendationDaoImpl implements ContentRecommendationDaoInt
 	SessionFactory sessionFactory;
 
 	public void addRecord(ContentRecommendationModel contentRecommendationModel) {
-		if (getByContentID(contentRecommendationModel.getContentId()) == null) {
-			Session session = sessionFactory.openSession();
-			Transaction tr = session.beginTransaction();
-			// System.out.println("Inside dao add " + record.getmVisitorID());
-			try {
-				// System.out.println("Transaction started..");
-				session.save(contentRecommendationModel);
-				// System.out.println("Transaction commit");
-				tr.commit();
-			} catch (Exception e) {
-				tr.rollback();
-				session.close();
-			}
-		} else {
-			// System.out.println("Already exists");
+		Session session = sessionFactory.openSession();
+		Transaction tr = session.beginTransaction();
+		try {
+			session.save(contentRecommendationModel);
+			tr.commit();
+		} catch (Exception e) {
+			tr.rollback();
+			session.close();
 		}
 	}
 
@@ -53,11 +46,12 @@ public class ContentRecommendationDaoImpl implements ContentRecommendationDaoInt
 	 */
 
 	@SuppressWarnings("unchecked")
-	public ContentRecommendationModel getByContentID(String pContentID) {
+	public ContentRecommendationModel getByContentID(String contentID) {
 		Session session = sessionFactory.openSession();
 
-		Query<ContentRecommendationModel> query = session.createQuery("from RecModel u where u.mContentID= :ContentID");
-		query.setParameter("ContentID", pContentID);
+		Query<ContentRecommendationModel> query = session
+				.createQuery("from ContentRecommendationModel where contentID= :contentID");
+		query.setParameter("contentID", contentID);
 		// query.
 		// List<String> result = query.getResultList(); // getting hql result
 		List<ContentRecommendationModel> res = query.getResultList();
@@ -72,11 +66,12 @@ public class ContentRecommendationDaoImpl implements ContentRecommendationDaoInt
 	}
 
 	@SuppressWarnings("unchecked")
-	public ContentRecommendationModel getByContentName(String pContentName) {
+	public ContentRecommendationModel getByContentName(String contentName) {
 		Session session = sessionFactory.openSession();
 
-		Query<ContentRecommendationModel> query = session.createQuery("from RecModel u where u.mContentName= :ContentName");
-		query.setParameter("ContentName", pContentName);
+		Query<ContentRecommendationModel> query = session
+				.createQuery("from ContentRecommendationModel  where contentName= :contentName");
+		query.setParameter("contentName", contentName);
 		// query.
 		// List<String> result = query.getResultList(); // getting hql result
 		List<ContentRecommendationModel> res = query.getResultList();

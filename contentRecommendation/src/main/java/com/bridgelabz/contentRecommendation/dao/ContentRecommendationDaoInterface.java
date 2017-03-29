@@ -9,8 +9,8 @@ public interface ContentRecommendationDaoInterface {
 
 	public void addRecord(ContentRecommendationModel contentRecommendationModel);
 
-	public ContentRecommendationModel getByContentID(String ContentId);
+	public ContentRecommendationModel getByContentID(String contentId);
 
-	public ContentRecommendationModel getByContentName(String ContentName);
+	public ContentRecommendationModel getByContentName(String contentName);
 
 }

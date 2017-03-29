@@ -36,8 +36,8 @@ public class ContentRecommendationUtility {
 
 	public String createContent(String contentName, String categoryName) {
 		JsonObject jObj = new JsonObject();
-		jObj.addProperty("ContentName", contentName);
-		jObj.addProperty("CategoryName", categoryName);
+		jObj.addProperty("contentName", contentName);
+		jObj.addProperty("categoryName", categoryName);
 		return jObj.toString();
 	}
 
@@ -50,7 +50,7 @@ public class ContentRecommendationUtility {
 		Properties prop = new Properties();
 		try {
 
-			String propFileName = "/home/bridgelabz/AWSIntegration/RecProject1-master/src/main/resources/resource.properties";
+			String propFileName = "/home/bridgelabz/ContentRecommendation/contentRecommendation/src/main/resources/propertiesFile/resource.properties";
 			// passing propFileName to the FileInputStream class object
 			FileInputStream fis;
 

@@ -26,81 +26,81 @@ public class ContentRecommendationModel {
 	}
 
 	@Id
-	@Column(name = "ContentId")
-	private String ContentId;
+	@Column(name = "contentId")
+	private String contentId;
 
 	@Transient
-	private String VisitorId;
+	private String visitorId;
 
-	@Column(name = "ContentName")
-	private String ContentName;
+	@Column(name = "contentName")
+	private String contentName;
 
-	@Column(name = "CategoryName")
-	private String CategoryName;
-
-	@Transient
-	private String View;
+	@Column(name = "categoryName")
+	private String categoryName;
 
 	@Transient
-	private String Download;
+	private String view;
 
-	@Column(name = "ImageUrl")
-	private String ImageUrl;
+	@Transient
+	private String download;
+
+	@Column(name = "imageUrl")
+	private String imageUrl;
 
 	public String getContentId() {
-		return ContentId;
+		return contentId;
 	}
 
 	public void setContentId(String contentId) {
-		this.ContentId = contentId;
+		this.contentId = contentId;
 	}
 
 	public String getVisitorId() {
-		return VisitorId;
+		return visitorId;
 	}
 
 	public void setVisitorId(String visitorId) {
-		this.VisitorId = visitorId;
+		this.visitorId = visitorId;
 	}
 
 	public String getContentName() {
-		return ContentName;
+		return contentName;
 	}
 
 	public void setContentName(String contentName) {
-		this.ContentName = contentName;
+		this.contentName = contentName;
 	}
 
 	public String getCategoryName() {
-		return CategoryName;
+		return categoryName;
 	}
 
 	public void setCategoryName(String categoryName) {
-		this.CategoryName = categoryName;
+		this.categoryName = categoryName;
 	}
 
 	public String getView() {
-		return View;
+		return view;
 	}
 
 	public void setView(String view) {
-		this.View = view;
+		this.view = view;
 	}
 
 	public String getDownload() {
-		return Download;
+		return download;
 	}
 
 	public void setDownload(String download) {
-		this.Download = download;
+		this.download = download;
 	}
 
 	public String getImageUrl() {
-		return ImageUrl;
+		return imageUrl;
 	}
 
 	public void setImageUrl(String imageUrl) {
-		this.ImageUrl = imageUrl;
+		this.imageUrl = imageUrl;
 	}
 
 }

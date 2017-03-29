@@ -16,7 +16,7 @@
 		<div class="control-group">
 			<label class="control-label">Game Name:</label>
 			<div class="controls">
-				<input type="text" name=pContentName id="pContentName"
+				<input type="text" name=contentName id="contentName"
 					title="Content Name" value="">
 			</div>
 		</div>

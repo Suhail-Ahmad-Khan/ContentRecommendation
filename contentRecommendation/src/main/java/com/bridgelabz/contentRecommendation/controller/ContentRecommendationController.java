@@ -34,7 +34,6 @@ public class ContentRecommendationController {
 	// This method is called at application startup
 	@EventListener
 	public void onStartUp(ContextRefreshedEvent event) {
-		System.out.println("RecControl onStartUp - start");
 		FileReader fileReader;
 		String[] entryData;
 		String firstColumnEntry = "visitor_id";
@@ -43,7 +42,7 @@ public class ContentRecommendationController {
 		try {
 			HashMap<String, String> hashMap = new HashMap<>();
 			jsonReader = new JsonReader(
-					new FileReader("/ContentRecommendation/src/main/resources/dataFile/imageUrl.json"));
+					new FileReader("/home/bridgelabz/ContentRecommendation/contentRecommendation/src/main/resources/dataFile/abc.json"));
 			jsonReader.beginObject();
 			while (jsonReader.hasNext()) {
 				hashMap.put(jsonReader.nextName(), jsonReader.nextString());
@@ -104,6 +103,7 @@ public class ContentRecommendationController {
 	@RequestMapping(value = "/getContentName", method = RequestMethod.POST)
 	public ModelAndView getSuggestionByString(@ModelAttribute("contentName") String contentName) {
 		ContentRecommendationModel record = contentRecommendationServiceInterface.getbyContentName(contentName);
+		
 		List<ContentRecommendationModel> suggestionList = new ArrayList<ContentRecommendationModel>();
 		if (record != null) {
 			Set<String> suggestionSet = contentRecommendationServiceInterface.getSuggestion(record);
